@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@keyframes fade-slide-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
+  80% {
+    transform: translateY(1px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-in-bottom {
+  animation: fade-slide-in-bottom 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+html{
+    width: 100dvw;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  display: none;    /* Chrome and Safari  */
+}
+
+html{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

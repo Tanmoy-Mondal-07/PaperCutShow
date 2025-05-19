@@ -1,13 +1,60 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/src/assets/logo00.svg" type="image/svg+xml" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cycle</title>
+  <style>
+    #splash {
+      position: fixed;
+      inset: 0;
+      background-color: #e8e6ed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      overflow: hidden;
+    }
+    #splash::before,
+    #splash::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-repeat: repeat;
+      z-index: -1;
+    }
+    #splash::before {
+      background-image: url('/cyber-grid.png');
+      opacity: 0.1;
+    }
+    #splash::after {
+      background-image: url('/noise-texture.png');
+      opacity: 0.05;
+    }
+    #splash img {
+      width: 500px;
+      margin-bottom: 1.5rem;
+      animation: float 2s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body style="margin:0;">
+  <div id="splash">
+    <img src="/src/assets/loding.png" alt="Loading…">
+  </div>
+  
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    // Remove splash after your app has mounted
+    window.addEventListener('load', () => {
+      document.getElementById('splash')?.remove();
+    });
+  </script>
+</body>
 </html>
